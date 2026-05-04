@@ -125,8 +125,17 @@ function authHeader() {
 async function apiFetch(url, options = {}) {
   if (!options.headers) options.headers = {};
   options.headers['Authorization'] = `Bearer ${authToken}`;
+  // Asegurar Content-Type cuando se envía JSON
+  if (options.body && typeof options.body === 'string' && !options.headers['Content-Type']) {
+    options.headers['Content-Type'] = 'application/json';
+  }
   const res = await fetch(url, options);
   if (res.status === 401) { logout(); throw new Error('Session expired'); }
+  if (!res.ok) {
+    let msg = `Error ${res.status}`;
+    try { const data = await res.json(); msg = data.error || msg; } catch {}
+    throw new Error(msg);
+  }
   return res;
 }
 
