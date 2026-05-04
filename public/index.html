@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ILMAR STUDIO — Belleza & Bienestar de Lujo</title>
+  <meta name="description" content="ILMAR STUDIO — Salón de belleza premium: corte, color, uñas y maquillaje. Reserva tu cita en línea." />
+  <meta name="theme-color" content="#111010" />
+  <link rel="icon" type="image/png" href="/assets/símbolo-negro.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css" />
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">
+    <img src="/assets/horizonta-blancol.png" alt="ILMAR STUDIO" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+    <li><a href="#gallery" data-i18n="nav.gallery">Galería</a></li>
+    <li><a href="#about" data-i18n="nav.about">Nosotros</a></li>
+    <li><a href="#booking" data-i18n="nav.contact">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="#booking" class="btn-solid" data-i18n="nav.book">Reservar</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div id="mobile-nav" style="display:none; position:fixed; inset:0; background:var(--ivory); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:2rem;">
+  <img src="/assets/horizonta-negro.png" alt="ILMAR STUDIO" style="height:32px; margin-bottom:1rem;" onerror="this.src='/assets/horizonta-blancol.png'; this.style.filter='invert(1) brightness(0)';" />
+  <a href="#services" class="mobile-nav-link" style="font-family:var(--serif); font-size:2rem; color:var(--ink);" data-i18n="nav.services">Servicios</a>
+  <a href="#gallery"  class="mobile-nav-link" style="font-family:var(--serif); font-size:2rem; color:var(--ink);" data-i18n="nav.gallery">Galería</a>
+  <a href="#about"    class="mobile-nav-link" style="font-family:var(--serif); font-size:2rem; color:var(--ink);" data-i18n="nav.about">Nosotros</a>
+  <a href="#booking"  class="mobile-nav-link btn-solid" data-i18n="nav.book" style="margin-top:0.5rem;">Reservar</a>
+  <div class="lang-toggle" style="margin-top:1rem;">
+    <button class="lang-btn active" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <div class="hero-text-pane">
+    <p class="hero-label">ILMAR STUDIO</p>
+    <h1 class="hero-headline">
+      <span class="hero-line1" data-i18n="hero.phrase1">Belleza que realza</span>
+      <span class="hero-line2" data-i18n="hero.phrase2">tu esencia</span>
+    </h1>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary" data-i18n="hero.cta_book">Reservar cita</a>
+      <a href="#services" class="btn-outline" data-i18n="hero.cta_services">Ver servicios</a>
+    </div>
+  </div>
+  <div class="hero-photo-pane">
+    <img
+      src="/hero.png"
+      alt="ILMAR STUDIO" />
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-subtitle" data-i18n="services.subtitle">Lo Que Ofrecemos</span>
+    <h2 class="section-title" data-i18n="services.title">Nuestros Servicios</h2>
+    <div class="gold-line"></div>
+    <p style="color:var(--gray); font-size:0.85rem; max-width:480px; margin:0 auto; font-family:var(--serif); font-style:italic;" data-i18n="services.intro">
+      Elaborados con precisión, entregados con pasión. Cada servicio es una experiencia exclusiva.
+    </p>
+  </div>
+  <div class="services-grid" id="services-grid">
+    <div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--gray);">
+      <div class="spinner" style="margin:0 auto;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<section id="gallery">
+  <div class="section-header">
+    <h2 class="section-title" data-i18n="gallery.title">Nuestro Trabajo</h2>
+    <div class="gold-line"></div>
+    <p style="color:var(--gray); font-size:0.85rem; max-width:480px; margin:0 auto; font-family:var(--serif); font-style:italic;" data-i18n="gallery.intro">
+      Cada look cuenta una historia. Descubre nuestras últimas transformaciones.
+    </p>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"><!-- JS --></div>
+  <div id="gallery-empty" style="display:none;" class="gallery-empty">
+    <span data-i18n="gallery.empty">Fotos próximamente ✨</span>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-image-wrap">
+      <img class="about-img"
+        src="/img/nosotros.png"
+        alt="Iliana — ILMAR STUDIO" loading="lazy" />
+    </div>
+    <div class="about-text">
+      <span class="section-subtitle" data-i18n="about.subtitle">Nuestra Historia</span>
+      <h2 data-i18n="about.title">La Belleza es un Arte.<br>Nosotras somos las Artistas.</h2>
+      <div class="gold-line" style="margin:1.5rem 0;"></div>
+      <p data-i18n="about.p1">
+        ILMAR STUDIO nació de una pasión por la belleza, la artesanía y la creación de espacios donde cada clienta se siente verdaderamente vista y celebrada. Reunimos las mejores técnicas del mundo para ofrecerte resultados únicos.
+      </p>
+      <p data-i18n="about.p2">
+        Ya sea que estés aquí para una transformación audaz o un retoque sutil, nuestro equipo de artistas dedicadas está comprometido a superar tus expectativas en cada visita.
+      </p>
+      <div class="about-quote">
+        <blockquote data-i18n="about.quote">
+          "La belleza no es perfección — es abrazar lo que te hace única."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BOOKING ═══════════════ -->
+<section id="booking">
+  <div class="section-header">
+    <span class="section-subtitle" data-i18n="booking.subtitle">Reserva tu Lugar</span>
+    <h2 class="section-title" data-i18n="booking.title">Agenda una Cita</h2>
+    <div class="gold-line"></div>
+    <p class="booking-intro" data-i18n="booking.intro">
+      Tu tiempo es sagrado. Consulta disponibilidad, elige tus servicios y llega lista para brillar.
+    </p>
+  </div>
+
+  <!-- Promesas -->
+  <div class="booking-promises">
+    <div class="promise-item">
+      <span class="promise-icon">☽</span>
+      <span class="promise-text" data-i18n="booking.promise1">Confirmación inmediata</span>
+    </div>
+    <div class="promise-item">
+      <span class="promise-icon">✦</span>
+      <span class="promise-text" data-i18n="booking.promise2">Sin complicaciones</span>
+    </div>
+    <div class="promise-item">
+      <span class="promise-icon">◇</span>
+      <span class="promise-text" data-i18n="booking.promise3">Cancela o reagenda fácilmente</span>
+    </div>
+  </div>
+
+  <!-- ══ AVAILABILITY WIDGET ══ -->
+  <div class="avail-widget" id="avail-widget">
+    <div class="avail-widget-header">
+      <div>
+        <div class="avail-widget-title" data-i18n="booking.avail_title">Consulta Disponibilidad</div>
+        <div style="font-size:0.68rem; color:var(--gray); margin-top:0.2rem;" data-i18n="booking.avail_subtitle">Revisa los horarios disponibles sin ningún compromiso</div>
+      </div>
+    </div>
+    <div class="avail-widget-body">
+      <div class="avail-date-col">
+        <label data-i18n="booking.avail_pick_date">Selecciona una fecha</label>
+        <input type="text" id="avail-date-input" placeholder="DD/MM/YYYY" readonly
+          style="padding:0.75rem 1rem; border-radius:var(--radius-sm); font-family:var(--sans); font-size:0.82rem; cursor:pointer; width:180px;" />
+      </div>
+      <div class="avail-slots-col">
+        <label data-i18n="booking.avail_slots_label">Horarios disponibles</label>
+        <div id="avail-slots-grid" class="avail-slots-grid">
+          <p class="avail-no-slots" data-i18n="booking.avail_select_date">Selecciona una fecha para ver los horarios disponibles.</p>
+        </div>
+      </div>
+    </div>
+    <div class="avail-cta" id="avail-cta">
+      <div class="avail-cta-info" id="avail-cta-info">
+        <span data-i18n="booking.avail_select_time">Selecciona un horario para reservar</span>
+      </div>
+      <button class="btn-solid" id="avail-book-btn" onclick="openBookingForm()" style="display:none;" data-i18n="booking.avail_book_btn">
+        Reservar este horario
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ BOOKING FORM (appears after selecting a slot) ══ -->
+  <div class="booking-inner" id="booking-form-area" style="display:none;">
+
+    <!-- Date/Time Banner -->
+    <div class="booking-datetime-banner" id="booking-banner">
+      <div class="banner-dt">
+        <div class="banner-dt-item">
+          <span>📅</span>
+          <div>
+            <small data-i18n="booking.summary_date">Fecha</small>
+            <span id="banner-date">—</span>
+          </div>
+        </div>
+        <div class="banner-dt-item">
+          <span>🕐</span>
+          <div>
+            <small data-i18n="booking.summary_time">Hora</small>
+            <span id="banner-time">—</span>
+          </div>
+        </div>
+      </div>
+      <button class="banner-change-btn" onclick="resetToAvailability()" data-i18n="booking.change_datetime">Cambiar</button>
+    </div>
+
+    <!-- Steps (3-step) -->
+    <div class="booking-steps">
+      <div class="step active" data-step="1">
+        <div class="step-num">1</div>
+        <span class="step-label" data-i18n="booking.step1">Servicios</span>
+      </div>
+      <div class="step" data-step="2">
+        <div class="step-num">2</div>
+        <span class="step-label" data-i18n="booking.step2">Tus Datos</span>
+      </div>
+      <div class="step" data-step="3">
+        <div class="step-num">3</div>
+        <span class="step-label" data-i18n="booking.step3">Confirmar</span>
+      </div>
+    </div>
+
+    <!-- Panel 1: Services (multi-select) -->
+    <div class="booking-panel active" id="panel-1">
+      <div class="form-group">
+        <label data-i18n="booking.select_services">Elige tus Servicios</label>
+        <p style="font-size:0.72rem; color:var(--gray); margin-bottom:1rem;" data-i18n="booking.select_services_hint">
+          Puedes seleccionar uno o más servicios.
+        </p>
+        <div id="booking-services-list" style="display:flex; flex-direction:column; gap:0.75rem;">
+          <div style="color:var(--gray); text-align:center; padding:2rem;">
+            <div class="spinner" style="margin:0 auto;"></div>
+          </div>
+        </div>
+        <div class="form-error" id="err-service" data-i18n="booking.err_service">
+          Por favor selecciona al menos un servicio para continuar.
+        </div>
+      </div>
+      <div class="form-nav">
+        <span></span>
+        <button class="btn-solid" onclick="goStep(2)">
+          <span data-i18n="booking.next">Continuar</span> →
+        </button>
+      </div>
+    </div>
+
+    <!-- Panel 2: Info -->
+    <div class="booking-panel" id="panel-2">
+      <div class="form-row">
+        <div class="form-group">
+          <label data-i18n="booking.name">Nombre Completo</label>
+          <input type="text" id="client-name" autocomplete="name" />
+          <div class="form-error" id="err-name" data-i18n="booking.err_name">Por favor ingresa tu nombre.</div>
+        </div>
+        <div class="form-group">
+          <label data-i18n="booking.phone">Teléfono</label>
+          <input type="tel" id="client-phone" autocomplete="tel" />
+          <div class="form-error" id="err-phone" data-i18n="booking.err_phone">Por favor ingresa tu teléfono.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-i18n="booking.email">Correo Electrónico</label>
+        <input type="email" id="client-email" autocomplete="email" />
+        <div class="form-error" id="err-email" data-i18n="booking.err_email">Por favor ingresa un correo válido.</div>
+      </div>
+      <div class="form-group">
+        <label data-i18n="booking.notes">Notas (opcional)</label>
+        <textarea id="client-notes" rows="3" style="resize:vertical;"
+          data-i18n-placeholder="booking.notes_placeholder" placeholder="Solicitudes especiales o detalles..."></textarea>
+      </div>
+      <div class="form-nav">
+        <button class="btn-ghost" onclick="goStep(1)" data-i18n="booking.back">← Atrás</button>
+        <button class="btn-solid" onclick="goStep(3)"><span data-i18n="booking.next">Continuar</span> →</button>
+      </div>
+    </div>
+
+    <!-- Panel 3: Summary + Payment Method -->
+    <div class="booking-panel" id="panel-3">
+      <div class="booking-summary">
+        <h4 data-i18n="booking.summary_title">Resumen de la Cita</h4>
+        <div class="summary-row"><span data-i18n="booking.summary_service">Servicios</span><span id="sum-service">—</span></div>
+        <div class="summary-row"><span data-i18n="booking.summary_date">Fecha</span><span id="sum-date">—</span></div>
+        <div class="summary-row"><span data-i18n="booking.summary_time">Hora</span><span id="sum-time">—</span></div>
+        <div class="summary-row"><span data-i18n="booking.summary_client">Nombre</span><span id="sum-name">—</span></div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-ghost" onclick="goStep(2)" data-i18n="booking.back">← Atrás</button>
+        <button class="btn-solid" id="pay-btn" onclick="submitBooking()">
+          <span id="pay-btn-text" data-i18n="booking.confirm_btn">Confirmar Reserva</span>
+          <span id="pay-spinner" style="display:none;" class="spinner"></span>
+        </button>
+      </div>
+      <div id="booking-error" style="color:#FF7070; font-size:0.78rem; margin-top:1rem; display:none;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SUCCESS ═══════════════ -->
+<div id="success-page">
+  <div class="success-icon">✓</div>
+  <h2 style="font-family:var(--serif); font-size:2.5rem;" data-i18n="success.title">¡Cita Confirmada!</h2>
+  <p style="color:var(--gray); font-size:0.85rem;" data-i18n="success.subtitle">Gracias por reservar con ILMAR STUDIO. ¡Con gusto te esperamos!</p>
+  <div>
+    <p style="font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gray); margin-bottom:0.5rem;" data-i18n="success.ref_label">Referencia de Reserva</p>
+    <div class="success-ref" id="success-ref">—</div>
+  </div>
+  <p id="success-pending-note" style="display:none; color:var(--gold); font-size:0.78rem; max-width:420px; text-align:center;" data-i18n="success.pending_note">
+    Tu reserva está pendiente. Nos pondremos en contacto para confirmar tu cita.
+  </p>
+  <p style="color:var(--gray); font-size:0.8rem; max-width:420px; text-align:center;" data-i18n="success.email_note">
+    Recibirás una confirmación en tu correo. Guarda tu número de referencia.
+  </p>
+  <a href="/" class="btn-primary" style="margin-top:1rem;"><span data-i18n="success.back_home">Volver al Inicio</span></a>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <img src="/assets/horizonta-blancol.png" alt="ILMAR STUDIO" />
+      </div>
+      <p class="footer-tagline" id="footer-tagline" data-i18n="footer.tagline">
+        "Donde la belleza se encuentra con el arte. Cada visita es una experiencia de lujo creada solo para ti."
+      </p>
+      <div class="social-links">
+        <a class="social-link" href="https://instagram.com/ilmarstudio" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+        <a class="social-link" href="https://m.me/ilmarstudio" target="_blank" rel="noopener" aria-label="Messenger">📘</a>
+        <a class="social-link" href="https://wa.me/17030000000" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.services_title">Servicios</h5>
+      <ul id="footer-services-list">
+        <li><a href="#services">Uñas Acrílicas y Poligel</a></li>
+        <li><a href="#services">Semipermanente y Pedicura</a></li>
+        <li><a href="#services">Tintes y Tratamientos</a></li>
+        <li><a href="#services">Cejas y Pestañas</a></li>
+        <li><a href="#services">Maquillaje y Peinados</a></li>
+        <li><a href="#services">Micropigmentación</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.hours_title">Horarios</h5>
+      <div id="footer-hours">
+        <div class="footer-hours-row"><span class="day" data-i18n="footer.mon_fri">Lun – Vie</span><span>7:00 AM – 9:00 PM</span></div>
+        <div class="footer-hours-row"><span class="day" data-i18n="footer.sat">Sábado</span><span>7:00 AM – 9:00 PM</span></div>
+        <div class="footer-hours-row"><span class="day" data-i18n="footer.sun">Domingo</span><span>7:00 AM – 9:00 PM</span></div>
+        <div class="footer-hours-row" style="font-size:0.7rem;color:var(--gray);margin-top:0.5rem;font-style:italic;" data-i18n="footer.flexible_note">Horarios flexibles — reserva con anticipación</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5 data-i18n="footer.contact_title">Contacto</h5>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">📍</span>
+        <span id="footer-address">5510 Ascot Ct, Alexandria, VA 22311</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">💬</span>
+        <a id="footer-whatsapp" href="https://wa.me/17030000000" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">📘</span>
+        <a id="footer-messenger" href="https://m.me/ilmarstudio" target="_blank" rel="noopener">Messenger</a>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-contact-icon">📸</span>
+        <a id="footer-instagram" href="https://instagram.com/ilmarstudio" target="_blank" rel="noopener">@ilmarstudio</a>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <a href="#booking" class="btn-primary" style="font-size:0.58rem; padding:0.65rem 1.4rem;"><span data-i18n="nav.book">Reservar</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footer-copy" data-i18n="footer.copy">© 2025 ILMAR STUDIO. Todos los derechos reservados.</span>
+    <a href="/admin" style="color:rgba(136,136,136,0.25); transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(136,136,136,0.25)'" data-i18n="footer.admin">Admin</a>
+  </div>
+</footer>
+
+<!-- ═══════════════ LIGHTBOX ═══════════════ -->
+<div id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button id="lb-close" aria-label="Cerrar">&times;</button>
+  <button id="lb-prev" aria-label="Anterior">&#8249;</button>
+  <button id="lb-next" aria-label="Siguiente">&#8250;</button>
+  <div id="lb-img-wrap">
+    <img id="lb-img" src="" alt="" />
+  </div>
+  <p id="lb-caption"></p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
