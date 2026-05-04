@@ -24,6 +24,8 @@ async function connect() {
 
   _client = new MongoClient(process.env.MONGODB_URI, {
     serverSelectionTimeoutMS: 8000,
+    tls: true,
+    tlsAllowInvalidCertificates: true,
   });
 
   await _client.connect();
